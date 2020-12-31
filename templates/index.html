@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Tree Type Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head> 
+
+<body background="https://lh5.googleusercontent.com/proxy/4vbIAzfLtz2eDbQMOoU-AIu5sDST-dHmm9vaxN3VQyBjjH11o4VUWF4QEQfIO8oZ4a5Zy1lXDGSKWlIrDnokEATdPiNz4ho4beHMDhCPltozmdnc5Cac69cVH3WvIUJEF7M=s0-d">
+ <div class="login">
+	<h1 style="text-align:center">Tree Type Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<h3 style="text-align:center;">Elevation</h3>
+	<p style="text-align:center;"><input type="number" name="Elevation" min="1859" max= "3858" required="required" /></p>
+
+	<h3 style="text-align:center;">Vertical Distance to Hydrology</h3>
+        <p style="text-align:center;"><input type="number" name="Vertical_Distance_To_Hydrology" min="-173" max= "254"  required="required" /></p>
+
+	<h3 style="text-align:center;">Horizontal Distance to Roadways</h3>
+	<p style="text-align:center;"><input type="number" name="Horizontal_Distance_To_Roadways" min="0" max= "7117"  required="required" /></p>
+
+	<h3 style="text-align:center;">Hillshade Noon</h3>
+	<p style="text-align:center;"><input type="number" name="Hillshade_Noon" min="0" max= "254" required="required" /></p>
+
+	<h3 style="text-align:center;">Horizontal Distance to Fire Points</h3>
+		<p style="text-align:center;"><input type="number" name="Horizontal_Distance_To_Fire_Points" min="0" max="7126" required="required" /></p>
+
+	<h2 style="text-align:center;"></h2>	
+        <p style="text-align:center;"><button type="submit" class="btn btn-primary btn-block btn-large">Predict Tree Type</button></p>
+    </form>
+   <h2 style="text-align:center;">{{ prediction_text }}</h2>
+
+ </div>
+</body>
+</html>
